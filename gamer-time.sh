@@ -18,6 +18,7 @@ case $1 in
 		loginctl unlock-session $seat
 		xrandr --output DP-4 --off
 		xrandr --output HDMI-0 --auto
+		ydotool mousemove --absolute -- 1920 1080 
 		pactl set-default-sink "alsa_output.pci-0000_08_00.1.hdmi-stereo"
 		gamemoderun steam steam://open/bigpicture &
 		;;
