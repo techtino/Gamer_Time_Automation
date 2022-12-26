@@ -14,6 +14,8 @@ case $1 in
 		;;
 	1)
 	        # Turn off monitor and turn on TV, change audio output to hdmi, open big picture mode.
+		seat=$(loginctl list-sessions | grep seat | awk '{print $1}')
+		loginctl unlock-session $seat
 		xrandr --output DP-4 --off
 		xrandr --output HDMI-0 --auto
 		pactl set-default-sink "alsa_output.pci-0000_08_00.1.hdmi-stereo"
